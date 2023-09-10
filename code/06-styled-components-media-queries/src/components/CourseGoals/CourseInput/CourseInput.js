@@ -7,6 +7,7 @@ import './CourseInput.css';
 const FormControl = styled.div`
   margin: 0.5rem 0;
 
+  //NOTE: na pseudoselectory sa pozuiva & synax v style-components plugine, je to referencia na div
   & label {
     font-weight: bold;
     display: block;

@@ -7,7 +7,9 @@ import './App.css';
 const App = () => {
   const [courseGoals, setCourseGoals] = useState([
     { text: 'Do all exercises!', id: 'g1' },
-    { text: 'Finish the course!', id: 'g2' }
+    { text: 'Finish the course!', id: 'g2' },
+    { text: 'Finish the couasdsadrse!', id: 'g3' },
+    { text: 'Finish the courasdase!', id: 'g4' }
   ]);
 
   const addGoalHandler = enteredText => {

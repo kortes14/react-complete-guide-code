@@ -14,6 +14,7 @@ const Button = styled.button`
     width: auto;
   }
 
+  //NOTE: na pseudoselectory sa pozuiva & synax v style-components plugine, je to referencia na button
   &:focus {
     outline: none;
   }
