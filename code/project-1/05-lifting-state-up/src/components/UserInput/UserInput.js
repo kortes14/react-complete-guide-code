@@ -7,13 +7,13 @@ const initialUserInput = {
   duration: 10,
 };
 
-const UserInput = (props) => {
+const UserInput = (props) => { //pridanie props kvoli tomu aby v App sme vedeli pristupovat k hodnotam
   const [userInput, setUserInput] = useState(initialUserInput);
 
   const submitHandler = (event) => {
     event.preventDefault();
     
-    props.onCalculate(userInput);
+    props.onCalculate(userInput); //lifting the state up, zavolame function z App, posunieme jej userInput
   };
 
   const resetHandler = () => {

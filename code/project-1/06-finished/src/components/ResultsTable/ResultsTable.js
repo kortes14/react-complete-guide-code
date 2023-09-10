@@ -9,8 +9,43 @@ const formatter = new Intl.NumberFormat('en-US', {
 
 const ResultsTable = (props) => {
   return (
-    <table className={classes.result}>
-      <thead>
+    <div>
+      <table className={classes.result}>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Total Savings</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.data.map((yearData) => (
+            <tr key={yearData.year}>
+              <td>{yearData.year}</td>
+              <td>{formatter.format(yearData.savingsEndOfYear)}</td>
+              <td>{formatter.format(yearData.yearlyInterest)}</td>
+              <td>
+                {formatter.format(
+                  yearData.savingsEndOfYear -
+                    props.initialInvestment -
+                    yearData.yearlyContribution * yearData.year
+                )}
+              </td>
+              <td>
+                {formatter.format(
+                  props.initialInvestment +
+                    yearData.yearlyContribution * yearData.year
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p style={{textAlign: 'center'}}>Table explained:</p>
+      <table className={classes.result}>
+        <thead>
         <tr>
           <th>Year</th>
           <th>Total Savings</th>
@@ -18,30 +53,40 @@ const ResultsTable = (props) => {
           <th>Total Interest</th>
           <th>Invested Capital</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         {props.data.map((yearData) => (
           <tr key={yearData.year}>
             <td>{yearData.year}</td>
-            <td>{formatter.format(yearData.savingsEndOfYear)}</td>
-            <td>{formatter.format(yearData.yearlyInterest)}</td>
             <td>
+              { props.initialInvestment +
+                yearData.yearlyContribution * yearData.year
+              }-
+              { yearData.savingsEndOfYear -
+                props.initialInvestment -
+                yearData.yearlyContribution * yearData.year
+              }
+              =>
+              {formatter.format(yearData.savingsEndOfYear)}</td>
+            <td>{formatter.format(yearData.yearlyInterest)}</td>
+            <td>{props.initialInvestment} - {yearData.savingsEndOfYear} + ({yearData.yearlyContribution} * {yearData.year}) ->
               {formatter.format(
                 yearData.savingsEndOfYear -
-                  props.initialInvestment -
-                  yearData.yearlyContribution * yearData.year
+                props.initialInvestment -
+                yearData.yearlyContribution * yearData.year
               )}
             </td>
-            <td>
+            <td>{props.initialInvestment} + ({yearData.yearlyContribution} * {yearData.year}) =>
               {formatter.format(
                 props.initialInvestment +
-                  yearData.yearlyContribution * yearData.year
+                yearData.yearlyContribution * yearData.year
               )}
             </td>
           </tr>
         ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+  </div>
   );
 };
 

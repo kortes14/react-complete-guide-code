@@ -38,7 +38,7 @@ const UserInput = () => {
             onChange={(event) =>
               inputChangeHandler('current-savings', event.target.value)
             }
-            value={userInput['current-savings']}
+            value={userInput['current-savings']} //two-way binding
             type="number"
             id="current-savings"
           />
@@ -49,7 +49,7 @@ const UserInput = () => {
             onChange={(event) =>
               inputChangeHandler('yearly-contribution', event.target.value)
             }
-            value={userInput['yearly-contribution']}
+            value={userInput['yearly-contribution']} //two-way binding
             type="number"
             id="yearly-contribution"
           />
@@ -64,7 +64,7 @@ const UserInput = () => {
             onChange={(event) =>
               inputChangeHandler('expected-return', event.target.value)
             }
-            value={userInput['expected-return']}
+            value={userInput['expected-return']} //two-way binding
             type="number"
             id="expected-return"
           />
@@ -75,7 +75,7 @@ const UserInput = () => {
             onChange={(event) =>
               inputChangeHandler('duration', event.target.value)
             }
-            value={userInput['duration']}
+            value={userInput['duration']} //two-way binding
             type="number"
             id="duration"
           />

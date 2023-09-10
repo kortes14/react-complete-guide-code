@@ -4,7 +4,7 @@ import ResultsTable from './components/ResultsTable/ResultsTable';
 import UserInput from './components/UserInput/UserInput';
 
 function App() {
-  const [userInput, setUserInput] = useState(null);
+  const [userInput, setUserInput] = useState(null); //lifting the state up
 
   const calculateHandler = (userInput) => {
     setUserInput(userInput);
@@ -12,6 +12,7 @@ function App() {
 
   const yearlyData = [];
 
+  //lifting the state up -> tu je to obalene v userInput, aby sa prepocet tabulky stal stale ked klikneme na Calculate, a any v state boli user inputy
   if (userInput) {
     let currentSavings = +userInput['current-savings'];
     const yearlyContribution = +userInput['yearly-contribution'];
@@ -34,7 +35,7 @@ function App() {
     <div>
       <Header />
 
-      <UserInput onCalculate={calculateHandler} />
+      <UserInput onCalculate={calculateHandler} /> {/*lifting the state up*/}
 
       <ResultsTable />
     </div>

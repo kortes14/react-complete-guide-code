@@ -14,18 +14,19 @@ function App() {
 
   if (userInput) {
     let currentSavings = +userInput['current-savings'];
+    let currentSavingsTotal = 0;
     const yearlyContribution = +userInput['yearly-contribution'];
     const expectedReturn = +userInput['expected-return'] / 100;
     const duration = +userInput['duration'];
 
     for (let i = 0; i < duration; i++) {
       const yearlyInterest = currentSavings * expectedReturn;
-      currentSavings += yearlyInterest + yearlyContribution;
+      currentSavingsTotal += yearlyInterest + yearlyContribution;
       yearlyData.push({
         year: i + 1,
         yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        yearlyContribution: yearlyContribution,
+        savingsEndOfYear: currentSavingsTotal,
+        yearlyContribution: yearlyContribution
       });
     }
   }
