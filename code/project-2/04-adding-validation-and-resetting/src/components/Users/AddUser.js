@@ -13,6 +13,7 @@ const AddUser = (props) => {
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
+    //eneterg age is a string, and we can force a conversion to a number by +enteredAge
     if (+enteredAge < 1) {
       return;
     }
