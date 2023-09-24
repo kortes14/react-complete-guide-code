@@ -19,9 +19,11 @@ const Login = (props) => {
       );
     }, 500);
 
+    //cleanup function runs before every new useEffect execution,
+    // but after refresh this does not run for the first time!
     return () => {
       console.log('CLEANUP');
-      clearTimeout(identifier);
+      clearTimeout(identifier); //built in function in browser
     };
   }, [enteredEmail, enteredPassword]);
 
@@ -34,6 +36,10 @@ const Login = (props) => {
   };
 
   const validateEmailHandler = () => {
+    //setujeme emailIsValid state na zaklde ineho state co je enteredEmail
+    //a to by sme nemali robit
+    //vysvetlene je tu tuto: code/06-usereducer-starting-project/src/components/Login/Login.js:36
+    //a ukazane na projekte tuto: code/07-using-the-usereducer-hook/src/components/Login/Login.js
     setEmailIsValid(enteredEmail.includes('@'));
   };
 

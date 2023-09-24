@@ -7,13 +7,14 @@ import MainHeader from './components/MainHeader/MainHeader';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  //executes after reloading the page
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
 
     if (storedUserLoggedInInformation === '1') {
-      setIsLoggedIn(true);
+      setIsLoggedIn(true); //tento zapis bez useEffect by bol infinite loop, lebo set state urobi rerender komponentu
     }
-  }, []);
+  }, []); //kedze deps je prazdne pole, iba raz sa to spusti pri rerenderovani, a to chceme
 
   const loginHandler = (email, password) => {
     // We should of course check email and password

@@ -15,7 +15,10 @@ const Login = (props) => {
     setFormIsValid(
       enteredEmail.includes('@') && enteredPassword.trim().length > 6
     );
-  }, [enteredEmail, enteredPassword]);
+  },
+    //medzi dependecies je OR vyhodnocovanie
+    //setEmailIsValid tu nie je lebo function never changes
+    [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);

@@ -48,20 +48,25 @@ const Login = (props) => {
     };
   }, []);
 
+  //tu pokracuje riesenie z porjektu 07-using-the-usereduce-hook
+  // cize to je tu na to, abt sme reagovali lne ked sa zmeni validita a nie cely emailState alebo passwordState ako predtym
+  // z emailState vytiahnem emailIsValid
+  // toto je alias assignment, vytiahnem isValid zo state a pomenujem ako chcem
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
 
+  //hlavna myslienka: ak sa zmeni hodnota, ale nie validity tak tento useEffect nezbehne
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log('Checking form validity!');
-      setFormIsValid(emailIsValid && passwordIsValid);
+      setFormIsValid(emailIsValid && passwordIsValid); //tu to pouzijeme namiesto emailState.isValid && passwordState.isValid
     }, 500);
 
     return () => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
-  }, [emailIsValid, passwordIsValid]);
+  }, [emailIsValid, passwordIsValid]); //tu to pouzijeme namiesto [emailState, passwordState]
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
