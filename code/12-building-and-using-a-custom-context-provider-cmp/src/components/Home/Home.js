@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
 import classes from './Home.module.css';
+//importujem sem default export z context providera, a nie ten cely komponent AuthContextProvider
 import AuthContext from '../../store/auth-context';
 
 const Home = (props) => {

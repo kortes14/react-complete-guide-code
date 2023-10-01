@@ -50,6 +50,7 @@ const Login = (props) => {
 
   const authCtx = useContext(AuthContext);
 
+  //vytvorenie referencii na ref pre inputy
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -100,9 +101,13 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    //cize po kliku na login sa cursor premiestni na prvy nevalidny komponent, bud email alebo password
     if (formIsValid) {
       authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid) {
+      // emailInputRef.current.activate(); // toto crashne, cannot use ref in functional components
+      //tu zavolame focus() metodku, ale tu ktoru som definoval v Input componente v imperativeHandle!
+      // cize toto je imperative handling
       emailInputRef.current.focus();
     } else {
       passwordInputRef.current.focus();
@@ -112,8 +117,9 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
+        {/*tieto komponenty sa vyrobili v lekcii 161. refactoring input element*/}
         <Input
-          ref={emailInputRef}
+          ref={emailInputRef} //calling comparatively
           id="email"
           label="E-Mail"
           type="email"

@@ -3,9 +3,11 @@ import React, { useState, useEffect, useReducer, useContext } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+//importujem sem default export z context providera, a nie ten cely komponent AuthContextProvider
 import AuthContext from '../../store/auth-context';
 
 const emailReducer = (state, action) => {
+  //rules of hooks poznamka, napriklad tu nemozem pouzit react useState() hook, nie som v react komponente!
   if (action.type === 'USER_INPUT') {
     return { value: action.val, isValid: action.val.includes('@') };
   }
@@ -46,6 +48,9 @@ const Login = (props) => {
   useEffect(() => {
     console.log('EFFECT RUNNING');
 
+    //rules of hooks poznamka,
+    // napriklad tu nemozem pouzit react useContect() hook, mozem volat iba na top level of functions!
+
     return () => {
       console.log('EFFECT CLEANUP');
     };
@@ -64,6 +69,8 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
+  //rules of hooks poznamka, veci zo state pouzite v useEffecte by mali byt dependecies! tu je to ok
+  // vynimka; napriklad setFormIsValid by som mohol pridat ako dependency, ale tu nemusim, pretoze sa nemeni
   }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {

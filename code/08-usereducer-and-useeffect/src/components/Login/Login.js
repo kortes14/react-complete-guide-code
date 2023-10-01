@@ -48,8 +48,8 @@ const Login = (props) => {
     };
   }, []);
 
-  //tu pokracuje riesenie z porjektu 07-using-the-usereduce-hook
-  // cize to je tu na to, abt sme reagovali lne ked sa zmeni validita a nie cely emailState alebo passwordState ako predtym
+  //tu pokracuje riesenie z projektu 07-using-the-usereducer-hook
+  // cize to je tu na to, aby sme reagovali len ked sa zmeni validita a nie cely emailState alebo passwordState ako predtym
   // z emailState vytiahnem emailIsValid
   // toto je alias assignment, vytiahnem isValid zo state a pomenujem ako chcem
   const { isValid: emailIsValid } = emailState;

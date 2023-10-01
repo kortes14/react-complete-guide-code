@@ -29,6 +29,11 @@ function App() {
   };
 
   return (
+    //tymto wraperrom budu mat pristup ku contextu vsteky componenty vnutri, a aj jeho childrens...
+    // cize poskytneme context = provide
+    // value prop tu musi byt, inac to padne
+    // cize ked sa isLoggedIn zmeni, tak sa tato info posunie vsetkym Consumer, kde sa z ctx pracuje
+    // cize netreba posuvat props hore-dole (we break up the props chain)
     <AuthContext.Provider
       value={{
         isLoggedIn: isLoggedIn,

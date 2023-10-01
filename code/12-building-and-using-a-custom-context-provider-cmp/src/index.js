@@ -7,6 +7,8 @@ import { AuthContextProvider } from './store/auth-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //a sem obalim cely App s mojim novym AuthContextProvider
+  // one central auth place management
   <AuthContextProvider>
     <App />
   </AuthContextProvider>

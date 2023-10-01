@@ -29,6 +29,8 @@ function App() {
 
   return (
     <React.Fragment>
+      {/*co je tu problem? posuvam do main header params cez props, ale tam s nim nic nerobim len sa posuvaju dalej do*/}
+      {/*Navigation komponentu*/}
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}

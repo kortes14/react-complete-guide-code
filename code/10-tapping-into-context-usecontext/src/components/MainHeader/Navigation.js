@@ -4,6 +4,8 @@ import AuthContext from '../../store/auth-context';
 import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
+  //useContext hook je lepsi sposob vyuzitia contextu cez hook
+  // a netreba pisat <AuthContext.Consumer> ako v projecte code/09-using-the-react-context-api/src/components/MainHeader/Navigation.js
   const ctx = useContext(AuthContext);
 
   return (

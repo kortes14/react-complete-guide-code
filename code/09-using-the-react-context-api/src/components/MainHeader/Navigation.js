@@ -5,6 +5,8 @@ import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
   return (
+    // takto z konzumeje auth aby sme vedeli k nemu pristupovat
+    // dostaneme object ctx kde vratime nas JSX code ktory s tym ctx pracuje
     <AuthContext.Consumer>
       {(ctx) => {
         return (
