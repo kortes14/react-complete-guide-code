@@ -7,9 +7,12 @@ const defaultCartState = {
   totalAmount: 0
 };
 
+//this is outside of react, for managing the state of cart
+// state - last state snapshot
+// action ktoru som dispatchol
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
-    const updatedItems = state.items.concat(action.item);
+    const updatedItems = state.items.concat(action.item); //add item an return updated array
     const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
     return {
       items: updatedItems,
@@ -30,6 +33,7 @@ const CartProvider = (props) => {
     dispatchCartAction({type: 'REMOVE', id: id});
   };
 
+  //helper object for controling the context in cart-context.js
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
@@ -37,6 +41,7 @@ const CartProvider = (props) => {
     removeItem: removeItemFromCartHandler,
   };
 
+  //tymto stylom potom vieme owrapovat vsetky komponenty ktore potrebuju acces to context
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}

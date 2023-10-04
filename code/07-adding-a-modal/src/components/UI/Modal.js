@@ -20,6 +20,7 @@ const portalElement = document.getElementById('overlays');
 const Modal = (props) => {
   return (
     <Fragment>
+      {/*toto sa prenesie do <div id="overlays"></div> v index.html*/}
       {ReactDOM.createPortal(<Backdrop />, portalElement)}
       {ReactDOM.createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>,

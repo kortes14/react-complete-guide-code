@@ -10,8 +10,9 @@ const MealItemForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
+    //zisakana hodnota cez useRef
+    const enteredAmount = amountInputRef.current.value; //this value is always a string, even if the input is a number
+    const enteredAmountNumber = +enteredAmount; //casting to number
 
     if (
       enteredAmount.trim().length === 0 ||
@@ -22,13 +23,15 @@ const MealItemForm = (props) => {
       return;
     }
 
+    //tu neni volany context, lebo tu nemame info ako nazov, price..., cize sa to len posunie dalejdo MealItemu
     props.onAddToCart(enteredAmountNumber);
   };
 
   return (
+    //na form sumbit na konci vyvole add dispatcher funkciu v contexte (cez onAddToCart)
     <form className={classes.form} onSubmit={submitHandler}>
       <Input
-        ref={amountInputRef}
+        ref={amountInputRef} //tu je refs pouzite, inaksi sposob by bol two-way binding cez state
         label='Amount'
         input={{
           id: 'amount_' + props.id,

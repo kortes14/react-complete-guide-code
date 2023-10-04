@@ -18,6 +18,7 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById('overlays');
 
 const Modal = (props) => {
+  // props chaining je v tomto pripade OK, pretoze vdaka tomuje modal more reusable
   return (
     <Fragment>
       {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}

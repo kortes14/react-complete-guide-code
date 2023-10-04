@@ -17,6 +17,7 @@ function App() {
   };
 
   return (
+    //wrapper for components that need context (cize vsetky)
     <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
