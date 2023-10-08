@@ -12,6 +12,8 @@ const DUMMY_USERS = [
 class Users extends Component {
   constructor() {
     super();
+    //state je reserved slovicko
+    //state is ALWAYS an object in class based components
     this.state = {
       showUsers: true,
       more: 'Test',
@@ -36,6 +38,7 @@ class Users extends Component {
 
     return (
       <div className={classes.users}>
+        {/* funkcie musime bind-nut v tomto pripade*/}
         <button onClick={this.toggleUsersHandler.bind(this)}>
           {this.state.showUsers ? 'Hide' : 'Show'} Users
         </button>

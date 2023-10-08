@@ -6,6 +6,8 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
 
+  //toto zachyti hocijaky error a zalogujeme chybu
+  //nie je na to alternativa vo functional components, preto sa to pouziva aj nadalej
   componentDidCatch(error) {
     console.log(error);
     this.setState({ hasError: true });

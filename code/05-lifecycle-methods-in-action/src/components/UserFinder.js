@@ -18,11 +18,13 @@ class UserFinder extends Component {
     };
   }
 
+  //useEffect ale s prazdnymi dependencies, cize sa to spusti raz na zaciatku...
   componentDidMount() {
     // Send http request...
     this.setState({ filteredUsers: DUMMY_USERS });
   }
 
+  //useEffect with a dependency - preto je tu if check
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       this.setState({
