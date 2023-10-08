@@ -10,6 +10,10 @@ function App() {
 
   console.log('APP RUNNING');
 
+  //useCallback -> we dont what to recreate this function
+  // takze po kliknuti na toogle sa nic nestane
+  // values inside this function can change, so we want to recreate function.
+  // cize na toto treba ako dependency zadat ten allowToggle, a nenechat to prazdne
   const toggleParagraphHandler = useCallback(() => {
     if (allowToggle) {
       setShowParagraph((prevShowParagraph) => !prevShowParagraph);

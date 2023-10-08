@@ -3,12 +3,14 @@ import React, { useMemo } from 'react';
 import classes from './DemoList.module.css';
 
 const DemoList = (props) => {
+  //destructuring
   const { items } = props;
 
+  //memoize the sorting
   const sortedList = useMemo(() => {
     console.log('Items sorted');
     return items.sort((a, b) => a - b);
-  }, [items]); 
+  }, [items]); //ak dostanem novem items, chceme ich re-sortnut
   console.log('DemoList RUNNING');
 
   return (

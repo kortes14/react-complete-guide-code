@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
 
+  //for every state change, this component is reevaluated
   console.log('APP RUNNING');
 
   const toggleParagraphHandler = () => {

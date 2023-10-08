@@ -11,6 +11,8 @@ function App() {
     setListTitle('New Title');
   }, []);
 
+  //optimizing with the use memo, cislo lekcie 194.
+  // musime aj toto memoizovat, lebo je to stale object co nebude to iste po re-evaluation
   const listItems = useMemo(() => [5, 3, 1, 10, 9], []);
 
   return (
