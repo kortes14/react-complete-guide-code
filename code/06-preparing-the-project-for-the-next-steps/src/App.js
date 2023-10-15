@@ -13,7 +13,8 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      //z firebase projektu udeamy-react-learning-
+      const response = await fetch('https://udeamy-react-learning-default-rtdb.firebaseio.com/movies.json');
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }

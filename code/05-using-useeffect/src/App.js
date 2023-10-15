@@ -9,6 +9,7 @@ function App() {
   const [error, setError] = useState(null);
 
   const fetchMoviesHandler = useCallback(async () => {
+  // const fetchMoviesHandler = useCallback(async function (){ //iba iny zapis
     setIsLoading(true);
     setError(null);
     try {
@@ -34,6 +35,12 @@ function App() {
     setIsLoading(false);
   }, []);
 
+  //used when we click the button
+  //ak pouzijeme fetchMoviesHandler ako dependency tak preto ze to je object, lebo to je function
+  // tak to bude infinite loop
+  // preto pouzijeme UseCallback na riadku 11
+  // teoreticky v tomto pripade by sme mohli to aj vynechat
+  //v tomt pripade musi byt useEffect nizsie v kode ako: const fetchMoviesHandler
   useEffect(() => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);

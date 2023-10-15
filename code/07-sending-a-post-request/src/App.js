@@ -13,7 +13,8 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://react-http-6b4a6.firebaseio.com/movies.json');
+      //from the firebase project: udeamy-react-learning
+      const response = await fetch('https://udeamy-react-learning-default-rtdb.firebaseio.com/meetups.json');
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
@@ -43,7 +44,8 @@ function App() {
   }, [fetchMoviesHandler]);
 
   async function addMovieHandler(movie) {
-    const response = await fetch('https://react-http-6b4a6.firebaseio.com/movies.json', {
+    console.log("sending post");
+    const response = await fetch('https://udeamy-react-learning-default-rtdb.firebaseio.com/meetups.json', {
       method: 'POST',
       body: JSON.stringify(movie),
       headers: {
