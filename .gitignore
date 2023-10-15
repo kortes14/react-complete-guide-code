@@ -23,7 +23,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+!/package.json
 
 !/.idea/
 *package-lock.json
 *node_modules
+/package.json
