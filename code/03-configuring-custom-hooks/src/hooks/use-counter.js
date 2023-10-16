@@ -13,7 +13,7 @@ const useCounter = (forwards = true) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [forwards]);
+  }, [forwards]); //treba to pridat ako dependency, kedze je to set from outside
 
   return counter;
 };

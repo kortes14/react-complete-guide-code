@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+//this is a custom hook
+//musi zacat function s nazvom useXXX
 const useCounter = () => {
   const [counter, setCounter] = useState(0);
 

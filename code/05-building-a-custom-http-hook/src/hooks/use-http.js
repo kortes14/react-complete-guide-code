@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+//must start with the word use
 const useHttp = (requestConfig, applyData) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,6 +27,7 @@ const useHttp = (requestConfig, applyData) => {
     setIsLoading(false);
   };
 
+  //tu vratim object, ktory poskytne componentu vsetky fields
   return {
     isLoading,
     error,

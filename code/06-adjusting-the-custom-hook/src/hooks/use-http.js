@@ -4,10 +4,14 @@ const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  //useCallback je tu na to aby sme nemali infinite loop
+  //tym ze ocakavame requestConfig, applyData v sendRequest function a nie v useHttp tak
+  // zabezpecime ze tu (opat) nemame external dependency
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
     try {
+      //tweaking for a get request as a default
       const response = await fetch(requestConfig.url, {
         method: requestConfig.method ? requestConfig.method : 'GET',
         headers: requestConfig.headers ? requestConfig.headers : {},
