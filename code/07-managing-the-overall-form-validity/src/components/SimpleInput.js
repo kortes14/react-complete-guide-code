@@ -7,7 +7,12 @@ const SimpleInput = (props) => {
   const enteredNameIsValid = enteredName.trim() !== '';
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
+  //used for checking overall form validity
   let formIsValid = false;
+
+  //ak su vsetky input valid, tak mozme submitnut
+  ///kedze po kazdom keystroke sa toto znovuexecutne, mozme to takto pouzit
+  //toto bol povodne useEffect, ale nie je potrebny
 
   if (enteredNameIsValid) {
     formIsValid = true;

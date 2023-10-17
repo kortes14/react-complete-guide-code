@@ -7,6 +7,8 @@ const SimpleInput = (props) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
+  //nerobil som tento assignemnt, len si to vizualne porovnal
+  // v podstate sa tu 2 krat robia podobne veci - fixne sa to v projecte 09
   const enteredNameIsValid = enteredName.trim() !== '';
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 

@@ -19,6 +19,7 @@ const SimpleInput = (props) => {
   const nameInputBlurHandler = event => {
     setEnteredNameTouched(true);
 
+    //ak sa odkliknem z input, tak sa to zvaliduje
     if (enteredName.trim() === '') {
       setEnteredNameIsValid(false);
       return;
@@ -61,7 +62,7 @@ const SimpleInput = (props) => {
           type='text'
           id='name'
           onChange={nameInputChangeHandler}
-          onBlur={nameInputBlurHandler}
+          onBlur={nameInputBlurHandler} //on blur validation
           value={enteredName}
         />
         {nameInputIsInvalid && (

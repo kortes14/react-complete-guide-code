@@ -3,8 +3,9 @@ import { useState } from 'react';
 import useInput from '../hooks/use-input';
 
 const SimpleInput = (props) => {
+  //takto sa pouzije custom hook useInput
   const {
-    value: enteredName,
+    value: enteredName, //assign the alias
     isValid: enteredNameIsValid,
     hasError: nameInputHasError,
     valueChangeHandler: nameChangedHandler,
@@ -42,7 +43,7 @@ const SimpleInput = (props) => {
     console.log(enteredName);
 
     // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
-    resetNameInput();
+    resetNameInput(); //calling reset from the custom hook
 
     setEnteredEmail('');
     setEnteredEmailTouched(false);

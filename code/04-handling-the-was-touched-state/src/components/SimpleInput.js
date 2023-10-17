@@ -4,6 +4,7 @@ const SimpleInput = (props) => {
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState('');
   const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  //tento state je na to aby sa pri prvom loadnuti page, nezobrazila hned invalid hlaska
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const SimpleInput = (props) => {
     setEnteredName('');
   };
 
+  //vdaka enteredNameTouched sa nam nezobrazi error hlaska hned pri loadnuti page, kde je tiez prazdny from
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   const nameInputClasses = nameInputIsInvalid

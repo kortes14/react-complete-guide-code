@@ -4,6 +4,8 @@ const isNotEmpty = (value) => value.trim() !== '';
 const isEmail = (value) => value.includes('@');
 
 const BasicForm = (props) => {
+  //toto bola ako challenge
+  //v podstate len prepouzite toho isteho custom useInput hooku na 3 inputy s roznymi validations
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
@@ -31,6 +33,7 @@ const BasicForm = (props) => {
 
   let formIsValid = false;
 
+  //nazbudbut zavolat isValid nad vsetkymi inputs
   if (firstNameIsValid && lastNameIsValid && emailIsValid) {
     formIsValid = true;
   }
@@ -38,6 +41,7 @@ const BasicForm = (props) => {
   const submitHandler = event => {
     event.preventDefault();
 
+    //this is a extra check
     if (!formIsValid) {
       return;
     }
@@ -45,6 +49,7 @@ const BasicForm = (props) => {
     console.log('Submitted!');
     console.log(firstNameValue, lastNameValue, emailValue);
 
+    //vsetko treba resetnut
     resetFirstName();
     resetLastName();
     resetEmail();

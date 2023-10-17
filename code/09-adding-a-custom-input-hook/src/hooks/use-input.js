@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
+//should be as generic as possible
+//useInput receives function as param (for validation)
 const useInput = (validateValue) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [isTouched, setIsTouched] = useState(false);
 
+  //konkretna validaacia inputu je sem pastnuta from the outside
   const valueIsValid = validateValue(enteredValue);
   const hasError = !valueIsValid && isTouched;
 

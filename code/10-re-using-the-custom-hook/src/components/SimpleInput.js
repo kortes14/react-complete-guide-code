@@ -8,8 +8,9 @@ const SimpleInput = (props) => {
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetNameInput,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.trim() !== ''); //passing the inline function
 
+  //prepouzite custom hook na email, cize je tu iba ina validation function na konci
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
@@ -35,6 +36,7 @@ const SimpleInput = (props) => {
     console.log(enteredName);
 
     // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
+    //treba osobitne zavolat reset oboch fields
     resetNameInput();
     resetEmailInput();
   };

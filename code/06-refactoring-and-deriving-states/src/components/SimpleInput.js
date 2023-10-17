@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
 const SimpleInput = (props) => {
+  //zmazal sa odtial ref
   const [enteredName, setEnteredName] = useState('');
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
+  //netreba state, da sa to rovno ako const vyriesit
+  //toto je ta hlavna zmena oproti 05 projectu
   const enteredNameIsValid = enteredName.trim() !== '';
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
