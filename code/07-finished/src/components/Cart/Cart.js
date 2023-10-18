@@ -9,7 +9,7 @@ import Checkout from './Checkout';
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [didSubmit, setDidSubmit] = useState(false);
+  const [didSubmit, setDidSubmit] = useState(false); //for showing success message
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -27,9 +27,11 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
+  //changing submitOrderHandler as async function
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
-    await fetch('https://react-http-6b4a6.firebaseio.com/orders.json', {
+    //here we are assuming this always work, but we should do some error handling
+    await fetch('https://react-tryout-course-default-rtdb.firebaseio.com/orders.json', {
       method: 'POST',
       body: JSON.stringify({
         user: userData,
@@ -38,7 +40,7 @@ const Cart = (props) => {
     });
     setIsSubmitting(false);
     setDidSubmit(true);
-    cartCtx.clearCart();
+    cartCtx.clearCart(); //calling and clearing cart after submiting...
   };
 
   const cartItems = (
@@ -83,7 +85,7 @@ const Cart = (props) => {
     </React.Fragment>
   );
 
-  const isSubmittingModalContent = <p>Sending order data...</p>;
+  const isSubmittingModalContent = <p>Sending order data...</p>; //pocas toho ako sa posiela POST
 
   const didSubmitModalContent = (
     <React.Fragment>
@@ -98,6 +100,7 @@ const Cart = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
+      {/*vypodmienkovanie podla toho co sa ma kedy zobrazit*/}
       {!isSubmitting && !didSubmit && cartModalContent}
       {isSubmitting && isSubmittingModalContent}
       {!isSubmitting && didSubmit && didSubmitModalContent}

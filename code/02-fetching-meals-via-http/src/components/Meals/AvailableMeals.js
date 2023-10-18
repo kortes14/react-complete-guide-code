@@ -8,9 +8,12 @@ import classes from './AvailableMeals.module.css';
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
 
+  //the function, ktoru dam do useEffect, should NOT return a promise!
+  // the cleanup function should synchronously
   useEffect(() => {
+    //takto sa uz da async function zadefinovat vnutri useEffectu
     const fetchMeals = async () => {
-      const response = await fetch('https://react-http-6b4a6.firebaseio.com/meals.json');
+      const response = await fetch('https://react-tryout-course-default-rtdb.firebaseio.com/meals.json');
       const responseData = await response.json();
 
       const loadedMeals = [];
@@ -24,6 +27,7 @@ const AvailableMeals = () => {
         });
       }
 
+      //setting via useState
       setMeals(loadedMeals);
     };
 

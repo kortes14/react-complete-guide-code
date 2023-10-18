@@ -48,6 +48,7 @@ const Checkout = (props) => {
       return;
     }
 
+    //sending userData to the Cart.js
     props.onConfirm({
       name: enteredName,
       street: enteredStreet,

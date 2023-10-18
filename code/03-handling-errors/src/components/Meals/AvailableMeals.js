@@ -6,13 +6,13 @@ import classes from './AvailableMeals.module.css';
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); //always start with loading the data...
   const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/meals.json'
+        'https://react-tryout-course-default-rtdb.firebaseio.com/meals.json'
       );
 
       if (!response.ok) {
@@ -36,12 +36,14 @@ const AvailableMeals = () => {
       setIsLoading(false);
     };
 
+    //try catch by tu nefungoval, kedze fetchMeals je async a vracia promise
     fetchMeals().catch((error) => {
       setIsLoading(false);
       setHttpError(error.message);
     });
   }, []);
 
+  //pre mapovanim meals sa len zobrazi tato section
   if (isLoading) {
     return (
       <section className={classes.MealsLoading}>

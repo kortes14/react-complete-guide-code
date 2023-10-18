@@ -55,6 +55,7 @@ const cartReducer = (state, action) => {
     };
   }
 
+  //new action added for clearing the cart
   if (action.type === 'CLEAR') {
     return defaultCartState;
   }
@@ -76,6 +77,7 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: 'REMOVE', id: id });
   };
 
+  //defining a new clear function
   const clearCartHandler = () => {
     dispatchCartAction({type: 'CLEAR'});
   };
@@ -85,7 +87,7 @@ const CartProvider = (props) => {
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
-    clearCart: clearCartHandler
+    clearCart: clearCartHandler //calling clear function
   };
 
   return (

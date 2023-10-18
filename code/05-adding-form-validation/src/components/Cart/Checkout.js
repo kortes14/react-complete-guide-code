@@ -6,6 +6,7 @@ const isEmpty = (value) => value.trim() === '';
 const isFiveChars = (value) => value.trim().length === 5;
 
 const Checkout = (props) => {
+  //one combined state for all inputs
   const [formInputsValidity, setFormInputsValidity] = useState({
     name: true,
     street: true,
@@ -13,6 +14,7 @@ const Checkout = (props) => {
     postalCode: true,
   });
 
+  //iba simple validation, az ked sa klikne na Confirm
   const nameInputRef = useRef();
   const streetInputRef = useRef();
   const postalCodeInputRef = useRef();
@@ -21,6 +23,8 @@ const Checkout = (props) => {
   const confirmHandler = (event) => {
     event.preventDefault();
 
+    //input validations for checkout...
+    //reading values
     const enteredName = nameInputRef.current.value;
     const enteredStreet = streetInputRef.current.value;
     const enteredPostalCode = postalCodeInputRef.current.value;
@@ -31,6 +35,7 @@ const Checkout = (props) => {
     const enteredCityIsValid = !isEmpty(enteredCity);
     const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode);
 
+    //updating the state, to give user the feedback
     setFormInputsValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
@@ -38,6 +43,7 @@ const Checkout = (props) => {
       postalCode: enteredPostalCodeIsValid,
     });
 
+    //only if all input are valid, the form is valid
     const formIsValid =
       enteredNameIsValid &&
       enteredStreetIsValid &&
@@ -51,6 +57,8 @@ const Checkout = (props) => {
     // Submit cart data
   };
 
+  //setting the classes (through template literal) and inject the error invalid class if the input is invalid
+  //ak name je invalid, vsetko bude cervene
   const nameControlClasses = `${classes.control} ${
     formInputsValidity.name ? '' : classes.invalid
   }`;

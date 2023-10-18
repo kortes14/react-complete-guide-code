@@ -22,7 +22,7 @@ const Cart = (props) => {
   };
 
   const orderHandler = () => {
-    setIsCheckout(true);
+    setIsCheckout(true); //ked stlacim order, zobrazim checkout
   };
 
   const cartItems = (
@@ -60,8 +60,9 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
+      {/*this new checkout form was added*/}
       {isCheckout && <Checkout onCancel={props.onClose} />}
-      {!isCheckout && modalActions}
+      {!isCheckout && modalActions} {/*bud sa vyrenderuje checkout alebo koniec modalu*/}
     </Modal>
   );
 };

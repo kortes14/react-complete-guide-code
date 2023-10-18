@@ -8,6 +8,7 @@ import Checkout from './Checkout';
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
+  const [submitInformation, setSubmitInformation] = useState("");
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -26,12 +27,15 @@ const Cart = (props) => {
   };
 
   const submitOrderHandler = (userData) => {
-    fetch('https://react-http-6b4a6.firebaseio.com/orders.json', {
+    //sending both the user data and the ordered items
+    fetch('https://react-tryout-course-default-rtdb.firebaseio.com/orders.json', {
       method: 'POST',
       body: JSON.stringify({
         user: userData,
         orderedItems: cartCtx.items
       })
+    }).then((data) => {
+      setSubmitInformation("Data to firebase successfully send!")
     });
   };
 
@@ -74,6 +78,7 @@ const Cart = (props) => {
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
       )}
       {!isCheckout && modalActions}
+      <p style={{textAlign: 'center'}}>{submitInformation}</p>
     </Modal>
   );
 };
