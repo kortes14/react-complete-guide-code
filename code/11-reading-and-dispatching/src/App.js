@@ -8,7 +8,7 @@ import UserProfile from './components/UserProfile';
 
 
 function App() {
-  const isAuth = useSelector(state => state.auth.isAuthenticated);
+  const isAuth = useSelector(state => state.auth.isAuthenticated); //opat pouzijeme auth keyword, aby sme sa dostali ku property
 
   return (
     <Fragment>

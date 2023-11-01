@@ -23,4 +23,4 @@ const counterSlice = createSlice({
 
 export const counterActions = counterSlice.actions;
 
-export default counterSlice.reducer;
+export default counterSlice.reducer; //rovno exportneme reducer

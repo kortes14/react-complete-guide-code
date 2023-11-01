@@ -25,12 +25,13 @@ const initialAuthState = {
   isAuthenticated: false,
 };
 
+//dalsi slice ktory sa stara cisto iba o auth
 const authSlice = createSlice({
   name: 'authentication',
   initialState: initialAuthState,
   reducers: {
     login(state) {
-      state.isAuthenticated = true;
+      state.isAuthenticated = true; //na pozadi sa to transformuje na unmutable code
     },
     logout(state) {
       state.isAuthenticated = false;
@@ -38,8 +39,10 @@ const authSlice = createSlice({
   },
 });
 
+//mame viac slices, ale volame iba jeden store
+// a reducery na mergnut dokopy
 const store = configureStore({
-  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer }, //counter a auth su nami vymyslene keys, moze to byt hocico
 });
 
 export const counterActions = counterSlice.actions;

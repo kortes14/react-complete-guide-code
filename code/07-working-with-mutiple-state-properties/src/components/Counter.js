@@ -4,6 +4,7 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
+  //cize v jednom file spravujem ackie a cez selector si vyberiem co treba
   const counter = useSelector((state) => state.counter);
   const show = useSelector((state) => state.showCounter);
 

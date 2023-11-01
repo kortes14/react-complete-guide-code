@@ -4,11 +4,12 @@ import classes from './Auth.module.css';
 import { authActions } from '../store/index';
 
 const Auth = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //toto musim zavolat aby som schopny zavolat dispatch
 
   const loginHandler = (event) => {
     event.preventDefault();
 
+    //iba sa dipsatchne login, nic ine
     dispatch(authActions.login());
   };
 

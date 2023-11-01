@@ -9,7 +9,8 @@ const Counter = () => {
   const show = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch(counterActions.increment());
+    //priamo zavolam actions a tym padom sa to dispatch-ne
+    dispatch(counterActions.increment()); //executing the method, preto zatvorky
   };
 
   const increaseHandler = () => {

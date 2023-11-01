@@ -31,6 +31,7 @@ const Counter = () => {
 
 export default Counter;
 
+//vysvetleny redux na starom sposobe class based components
 // class Counter extends Component {
 //   incrementHandler() {
 //     this.props.increment();
@@ -70,4 +71,5 @@ export default Counter;
 //   }
 // };
 
+////cez connect sa to prepaja po starom
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);

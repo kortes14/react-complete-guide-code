@@ -6,7 +6,7 @@ const counterReducer = (state = initialState, action) => {
   if (action.type === 'increment') {
     return {
       counter: state.counter + 1,
-      showCounter: state.showCounter
+      showCounter: state.showCounter //musime tu riesit showCounter tiez, lebo menime object a redux to za nas nemergne automaticky
     };
   }
 
@@ -24,10 +24,11 @@ const counterReducer = (state = initialState, action) => {
     };
   }
 
+  //cez dispatch action sa tu skryva/odkryva button, a nie cez state. To je iba na ukazku.
   if (action.type === 'toggle') {
     return {
-      showCounter: !state.showCounter,
-      counter: state.counter
+      counter: state.counter,
+      showCounter: !state.showCounter
     };
   }
 

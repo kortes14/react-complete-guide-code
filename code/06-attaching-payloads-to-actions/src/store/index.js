@@ -7,6 +7,7 @@ const counterReducer = (state = { counter: 0 }, action) => {
     };
   }
 
+  //nova akcia, kde sa uz pracuje z action v ktorej su data (amount)
   if (action.type === 'increase') {
     return {
       counter: state.counter + action.amount,
