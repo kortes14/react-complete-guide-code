@@ -7,6 +7,7 @@ const uiSlice = createSlice({
     toggle(state) {
       state.cartIsVisible = !state.cartIsVisible;
     },
+    //novy reducer na notifikacie
     showNotification(state, action) {
       state.notification = {
         status: action.payload.status,

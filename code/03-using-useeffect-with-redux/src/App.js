@@ -9,8 +9,10 @@ function App() {
   const showCart = useSelector((state) => state.ui.cartIsVisible);
   const cart = useSelector((state) => state.cart);
 
+  //if the cart changes, we will send a request
+  //useEffect is great for handling side effects
   useEffect(() => {
-    fetch('https://react-http-6b4a6.firebaseio.com/cart.json', {
+    fetch('https://react-tryout-course-default-rtdb.firebaseio.com/cart.json', {
       method: 'PUT',
       body: JSON.stringify(cart),
     });

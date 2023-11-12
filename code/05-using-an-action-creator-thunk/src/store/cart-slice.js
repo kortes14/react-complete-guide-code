@@ -43,7 +43,13 @@ const cartSlice = createSlice({
   },
 });
 
+//toto je action creator - thunk function
+//pouziva sa v useEffecte v app.js
+//redux accepts action creators with a function
+//  redux nam toto executne (cize dispatch)
+//  tym padom sa dispatchne aj to vsetko vnutri
 export const sendCartData = (cart) => {
+  //vraciame tu dalsiu js function
   return async (dispatch) => {
     dispatch(
       uiActions.showNotification({
@@ -53,9 +59,10 @@ export const sendCartData = (cart) => {
       })
     );
 
+    //sendRequest funckia je tu na error handling
     const sendRequest = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/cart.json',
+        'https://react-tryout-course-default-rtdb.firebaseio.com/cart.json',
         {
           method: 'PUT',
           body: JSON.stringify(cart),
@@ -69,7 +76,7 @@ export const sendCartData = (cart) => {
 
     try {
       await sendRequest();
-
+      //ak neprisiel error je to ok, ak nie tak sa to catchne
       dispatch(
         uiActions.showNotification({
           status: 'success',

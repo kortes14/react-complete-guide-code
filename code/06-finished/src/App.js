@@ -15,6 +15,7 @@ function App() {
   const cart = useSelector((state) => state.cart);
   const notification = useSelector((state) => state.ui.notification);
 
+  //separate effect, runs for the first time
   useEffect(() => {
     dispatch(fetchCartData());
   }, [dispatch]);
@@ -25,6 +26,7 @@ function App() {
       return;
     }
 
+    //if check na to, aby sa po fetchnuti znovu neposlali data do firebase
     if (cart.changed) {
       dispatch(sendCartData(cart));
     }

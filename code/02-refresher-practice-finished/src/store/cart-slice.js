@@ -7,12 +7,13 @@ const cartSlice = createSlice({
     totalQuantity: 0,
   },
   reducers: {
+    //tieto funkcie su actions
     addItemToCart(state, action) {
-      const newItem = action.payload;
+      const newItem = action.payload; //cez payload sa dostanem ku datam ked volam tuto function
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalQuantity++;
       if (!existingItem) {
-        state.items.push({
+        state.items.push({ //push tu mozme pouzit, ked sme v redux toolkit. Je to immutable.
           id: newItem.id,
           price: newItem.price,
           quantity: 1,
@@ -32,6 +33,7 @@ const cartSlice = createSlice({
         state.items = state.items.filter(item => item.id !== id);
       } else {
         existingItem.quantity--;
+        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
       }
     },
   },

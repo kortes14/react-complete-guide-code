@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 
 function App() {
+  //takto sa extrahuju data z redux, cez useSelector. Dostanem tu current state.
   const showCart = useSelector((state) => state.ui.cartIsVisible);
 
   return (

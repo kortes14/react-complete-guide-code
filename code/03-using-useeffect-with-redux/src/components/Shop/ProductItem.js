@@ -10,6 +10,10 @@ const ProductItem = (props) => {
   const { title, price, description, id } = props;
 
   const addToCartHandler = () => {
+    // tu by som mohol cez useSelector vybrat cart, pracovat na nom, pridat ked treba a zobrazit vysledok
+    //   musel byt som dat pozor na - mutating the state, vytvarat kopie objektov...
+    //   ale mohol by som tu volat http request - calling inside component
+    //   lepsie riesenie co je tu urobene, je pri amo v kode
     // and then send Http request
     // fetch('firebase-url', { method: 'POST', body: JSON.stringify(newCart) })
 

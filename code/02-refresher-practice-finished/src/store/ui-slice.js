@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//creating slice of reducers
 const uiSlice = createSlice({
   name: 'ui',
   initialState: { cartIsVisible: false },

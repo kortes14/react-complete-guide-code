@@ -16,11 +16,14 @@ function App() {
   const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
+    //odtialto sa vsetka logika presunula do cart-slice.js
     if (isInitial) {
       isInitial = false;
       return;
     }
 
+    //takto pouzijeme sendCartData as an action creator
+    //vyhoda, iba jednu action tu spustime
     dispatch(sendCartData(cart));
   }, [cart, dispatch]);
 

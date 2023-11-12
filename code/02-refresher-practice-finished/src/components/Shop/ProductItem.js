@@ -9,6 +9,7 @@ const ProductItem = (props) => {
 
   const { title, price, description, id } = props;
 
+  //to iste pridam handler a zavolam action, ale uz aj s datami - payload
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({

@@ -5,6 +5,7 @@ import classes from './Cart.module.css';
 import CartItem from './CartItem';
 
 const Cart = (props) => {
+  //displaying a list o cart items
   const cartItems = useSelector((state) => state.cart.items);
 
   return (

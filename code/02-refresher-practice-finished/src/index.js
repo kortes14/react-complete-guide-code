@@ -7,6 +7,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //providing the store for the app
   <Provider store={store}>
     <App />
   </Provider>

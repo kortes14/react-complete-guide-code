@@ -7,8 +7,9 @@ const CartButton = (props) => {
   const dispatch = useDispatch();
   const cartQuantity = useSelector((state) => state.cart.totalQuantity);
 
+  //spustenie akcie na button click
   const toggleCartHandler = () => {
-    dispatch(uiActions.toggle());
+    dispatch(uiActions.toggle()); //tu musi byt method, a su to akcie ktore vracaju objekt
   };
 
   return (

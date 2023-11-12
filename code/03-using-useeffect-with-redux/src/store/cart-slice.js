@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     items: [],
     totalQuantity: 0,
   },
+  //this is a fat reducer with all the logic
   reducers: {
     replaceCart(state, action) {
       state.totalQuantity = action.payload.totalQuantity;

@@ -1,26 +1,27 @@
-import { uiActions } from './ui-slice';
-import { cartActions } from './cart-slice';
+import { uiActions } from "./ui-slice";
+import { cartActions } from "./cart-slice";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/cart.json'
+        'https://react-tryout-course-default-rtdb.firebaseio.com/cart.json'
       );
 
       if (!response.ok) {
         throw new Error('Could not fetch cart data!');
       }
 
-      const data = await response.json();
-
-      return data;
+      return await response.json();
     };
 
     try {
+      //mozme tu pozuit await, react redux to umoznuje
       const cartData = await fetchData();
       dispatch(
         cartActions.replaceCart({
+          //tu je fix, aby sme vzdy vytvorili objekt ktroy ma items key
+          // tu to padlo, ked vycistim vsetky items z cart, a vo firebase neni ziadna items property (undefined)
           items: cartData.items || [],
           totalQuantity: cartData.totalQuantity,
         })
@@ -37,6 +38,8 @@ export const fetchCartData = () => {
   };
 };
 
+//presunute z cart-slice.js
+//cize je to file na actions metodky
 export const sendCartData = (cart) => {
   return async (dispatch) => {
     dispatch(
@@ -49,10 +52,11 @@ export const sendCartData = (cart) => {
 
     const sendRequest = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/cart.json',
+        'https://react-tryout-course-default-rtdb.firebaseio.com/cart.json',
         {
           method: 'PUT',
           body: JSON.stringify({
+            //presne vymenovanie fields ktore posielame, ak by tu bolo iba 'cart' poslala by sa aj 'changed' property
             items: cart.items,
             totalQuantity: cart.totalQuantity,
           }),

@@ -5,10 +5,11 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
-    changed: false,
+    changed: false, //ak pridam/zmazem tak je to true, ale je to false ak fetchujem data
   },
   reducers: {
     replaceCart(state, action) {
+      //change property will stay false
       state.totalQuantity = action.payload.totalQuantity;
       state.items = action.payload.items;
     },
