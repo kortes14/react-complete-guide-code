@@ -7,6 +7,7 @@ function ProductDetailPage() {
     <>
       <h1>Product Details!</h1>
       <p>{params.productId}</p>
+      {/*going up one level, vzhladom na aktualnu path*/}
       <p><Link to=".." relative='path'>Back</Link></p>
     </>
   );

@@ -4,6 +4,8 @@ function HomePage() {
   const navigate = useNavigate();
 
   function navigateHandler() {
+    //function to trigger navigation action
+    // cize zavolam navigaciu programatically
     navigate('/products');
   }
 

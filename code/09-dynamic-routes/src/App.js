@@ -26,6 +26,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <HomePage /> },
       { path: '/products', element: <ProductsPage /> },
+      //kedze som tu pouzil productId placeholder, tak toto potom sa ta pouzit na zobrazenie
       { path: '/products/:productId', element: <ProductDetailPage /> }
     ],
   }

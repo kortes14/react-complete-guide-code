@@ -11,6 +11,7 @@ function HomePage() {
     <>
       <h1>My Home Page</h1>
       <p>
+        {/*tu uz neni "/" aby to bola relative path*/}
         Go to <Link to="products">the list of products</Link>.
       </p>
       <p>

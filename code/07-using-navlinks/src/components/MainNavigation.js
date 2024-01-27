@@ -8,6 +8,8 @@ function MainNavigation() {
       <nav>
         <ul className={classes.list}>
           <li>
+            {/*nahrada za Link, ale navlink-u viem pridat className, ktora berie function ktora prida classu*/}
+            {/*pouzijeme na zaktivnenie linku*/}
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -16,7 +18,7 @@ function MainNavigation() {
               // style={({ isActive }) => ({
               //   textAlign: isActive ? 'center' : 'left',
               // })}
-              end
+              end //to je na to aby sa odznacilo ak z home prejdem na product napr. Cize toto bude active iba ak sme na root path a nikde inde
             >
               Home
             </NavLink>

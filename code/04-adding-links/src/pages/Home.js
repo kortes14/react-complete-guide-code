@@ -5,6 +5,7 @@ function HomePage() {
     <>
       <h1>My Home Page</h1>
       <p>
+        {/*vdaka Link sa neurobi http request pri kliknuti*/}
         Go to <Link to="/products">the list of products</Link>.
       </p>
     </>

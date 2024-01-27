@@ -8,6 +8,7 @@ function RootLayout() {
     <>
       <MainNavigation />
       <main className={classes.content}>
+        {/*toto je z react router dom, oznacuje miesto kde sa child elements budu renderovat. Je to marker.*/}
         <Outlet />
       </main>
     </>

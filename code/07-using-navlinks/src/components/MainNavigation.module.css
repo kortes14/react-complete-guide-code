@@ -17,6 +17,7 @@
 }
 
 .list a:hover,
+/*ak je aktivna class tak jej pridame css class*/
 .list a.active {
   color: var(--color-primary-800);
   text-decoration: underline;

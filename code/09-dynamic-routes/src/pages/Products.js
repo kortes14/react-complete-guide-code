@@ -13,6 +13,8 @@ function ProductsPage() {
       <ul>
         {PRODUCTS.map((prod) => (
           <li key={prod.id}>
+            {/*hocico co sem dam, je to productId */}
+            {/*toto je JS template literal, cez `` */}
             <Link to={`/products/${prod.id}`}>{prod.title}</Link>
           </li>
         ))}
