@@ -26,6 +26,7 @@ export async function action({ request, params }) {
     body: JSON.stringify(eventData),
   });
 
+  //reacting to the BE validation error
   if (response.status === 422) {
     return response;
   }

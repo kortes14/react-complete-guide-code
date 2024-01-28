@@ -39,6 +39,7 @@ import RootLayout from './pages/Root';
 
 const router = createBrowserRouter([
   {
+    //tu si vyriesenie vsetky tie practive body vyssie
     path: '/',
     element: <RootLayout />,
     children: [
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <EventsPage /> },
           { path: ':eventId', element: <EventDetailPage /> },
-          { path: 'new', element: <NewEventPage /> },
+          { path: 'new', element: <NewEventPage /> }, //react router rozumie ze 'new' je viac specific path ako :eventId
           { path: ':eventId/edit', element: <EditEventPage /> },
         ],
       },

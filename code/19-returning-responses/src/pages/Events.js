@@ -4,7 +4,7 @@ import EventsList from '../components/EventsList';
 
 function EventsPage() {
   const data = useLoaderData();
-  const events = data.events;
+  const events = data.events; //ale tu musim events vytiahnut
 
   return <EventsList events={events} />;
 }
@@ -12,11 +12,14 @@ function EventsPage() {
 export default EventsPage;
 
 export async function loader() {
+  //toto je executed in the browser
+  // react hooks tu nevieme pouzit!
   const response = await fetch('http://localhost:8080/events');
 
   if (!response.ok) {
     // ...
   } else {
+    //rovno tu viem vratit response
     return response;
   }
 }

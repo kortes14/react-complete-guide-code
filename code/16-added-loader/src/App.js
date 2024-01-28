@@ -21,6 +21,8 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <EventsPage />,
+            //loader is a property that wants function as a parameter
+            //  react router to executne vzdy ked navstivim "/events"
             loader: async () => {
               const response = await fetch('http://localhost:8080/events');
 
@@ -28,6 +30,7 @@ const router = createBrowserRouter([
                 // ...
               } else {
                 const resData = await response.json();
+                //react router zoberie hocico co returnem a podsunie ho pre EventsPage
                 return resData.events;
               }
             },

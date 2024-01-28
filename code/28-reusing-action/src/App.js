@@ -11,7 +11,7 @@ import EventsRootLayout from './pages/EventsRoot';
 import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEvent';
 import RootLayout from './pages/Root';
-import { action as manipulateEventAction } from './components/EventForm';
+import { action as manipulateEventAction } from './components/EventForm'; //jedna akcia pre aj edit aj new
 
 const router = createBrowserRouter([
   {
@@ -42,14 +42,14 @@ const router = createBrowserRouter([
               {
                 path: 'edit',
                 element: <EditEventPage />,
-                action: manipulateEventAction,
+                action: manipulateEventAction, //ta ista action
               },
             ],
           },
           {
             path: 'new',
             element: <NewEventPage />,
-            action: manipulateEventAction,
+            action: manipulateEventAction, //ta ista action
           },
         ],
       },

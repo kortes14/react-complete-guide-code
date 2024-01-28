@@ -8,7 +8,7 @@ import {
 import classes from './EventForm.module.css';
 
 function EventForm({ method, event }) {
-  const data = useActionData();
+  const data = useActionData(); //getting access to our data
   const navigate = useNavigate();
   const navigation = useNavigation();
 
@@ -20,6 +20,7 @@ function EventForm({ method, event }) {
 
   return (
     <Form method="post" className={classes.form}>
+      {/*zobrazenie chybovych hlasiek v pripade chyby 422*/}
       {data && data.errors && (
         <ul>
           {Object.values(data.errors).map((err) => (

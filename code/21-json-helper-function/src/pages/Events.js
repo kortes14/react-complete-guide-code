@@ -23,6 +23,7 @@ export async function loader() {
     // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
     //   status: 500,
     // });
+    //toto je react router utilitka, json vnutri vytvori ten Response object
     throw json(
       { message: 'Could not fetch events.' },
       {

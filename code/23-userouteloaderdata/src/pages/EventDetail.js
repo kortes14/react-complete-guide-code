@@ -3,6 +3,7 @@ import { useRouteLoaderData, json } from 'react-router-dom';
 import EventItem from '../components/EventItem';
 
 function EventDetailPage() {
+  // cez useRouteLoaderData sa dostanem ku higher-lever loader v ramci zadefinovanych paths
   const data = useRouteLoaderData('event-detail');
 
   return <EventItem event={data.event} />;

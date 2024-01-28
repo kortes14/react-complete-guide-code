@@ -36,7 +36,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailPage />,
-                action: deleteEventAction,
+                action: deleteEventAction, //pridanie novej akcie
               },
               { path: 'edit', element: <EditEventPage /> },
             ],

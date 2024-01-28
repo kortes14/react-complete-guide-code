@@ -3,12 +3,13 @@ import { Link, useSubmit } from 'react-router-dom';
 import classes from './EventItem.module.css';
 
 function EventItem({ event }) {
-  const submit = useSubmit();
+  const submit = useSubmit(); //react router hook
 
   function startDeleteHandler() {
     const proceed = window.confirm('Are you sure?');
 
     if (proceed) {
+      //submiting data programatically
       submit(null, { method: 'delete' });
     }
   }

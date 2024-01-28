@@ -9,7 +9,7 @@ function NewEventPage() {
 export default NewEventPage;
 
 export async function action({ request, params }) {
-  const data = await request.formData();
+  const data = await request.formData(); //getting the data from the form
 
   const eventData = {
     title: data.get('title'),
@@ -30,5 +30,6 @@ export async function action({ request, params }) {
     throw json({ message: 'Could not save event.' }, { status: 500 });
   }
 
+  //toto je router specific, zavolame redirect
   return redirect('/events');
 }

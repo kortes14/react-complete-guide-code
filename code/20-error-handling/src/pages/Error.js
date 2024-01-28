@@ -4,7 +4,7 @@ import MainNavigation from '../components/MainNavigation';
 import PageContent from '../components/PageContent';
 
 function ErrorPage() {
-  const error = useRouteError();
+  const error = useRouteError(); //special route hook, kde je vyhodena response, a viem pristupit k jej castiam
 
   let title = 'An error occurred!';
   let message = 'Something went wrong!';
@@ -20,6 +20,8 @@ function ErrorPage() {
 
   return (
     <>
+      {/*react router vyrenderuje nablizsi error element v rmaci route paths*/}
+      {/*any error will bubble up to this*/}
       <MainNavigation />
       <PageContent title={title}>
         <p>{message}</p>

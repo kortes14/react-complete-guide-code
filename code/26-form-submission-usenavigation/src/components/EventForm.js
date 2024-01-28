@@ -4,7 +4,7 @@ import classes from './EventForm.module.css';
 
 function EventForm({ method, event }) {
   const navigate = useNavigate();
-  const navigation = useNavigation();
+  const navigation = useNavigation(); //by react router, aby sme vedeli sa form submituje...
 
   const isSubmitting = navigation.state === 'submitting';
 

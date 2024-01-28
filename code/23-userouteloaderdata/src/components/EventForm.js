@@ -17,6 +17,7 @@ function EventForm({ method, event }) {
           type="text"
           name="title"
           required
+          //nastavenie defaultov ak mame event, cize pri edite
           defaultValue={event ? event.title : ''}
         />
       </p>

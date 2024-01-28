@@ -12,6 +12,7 @@ function EventsList({events}) {
       <ul className={classes.list}>
         {events.map((event) => (
           <li key={event.id} className={classes.item}>
+            {/*tu je to zmenene na absolute path*/}
             <Link to={`/events/${event.id}`}>
               <img src={event.image} alt={event.title} />
               <div className={classes.content}>

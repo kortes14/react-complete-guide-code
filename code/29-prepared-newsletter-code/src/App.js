@@ -54,6 +54,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+      //pridanie novej route
       {
         path: 'newsletter',
         element: <NewsletterPage />,

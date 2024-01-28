@@ -7,6 +7,7 @@ function EventsPage() {
   const [fetchedEvents, setFetchedEvents] = useState();
   const [error, setError] = useState();
 
+  //http request is only send once
   useEffect(() => {
     async function fetchEvents() {
       setIsLoading(true);

@@ -10,6 +10,7 @@ function ErrorPage() {
   let message = 'Something went wrong!';
 
   if (error.status === 500) {
+    //tu netreba parsovat Json, uz sa to udeje automaticky
     message = error.data.message;
   }
 

@@ -15,6 +15,8 @@ function EventDetailPage() {
 
   return (
     <>
+      {/*rozdelenie eventItem a eventList do dvoch cakajucich blokov*/}
+      {/*every await block must me wrapped in its own suspense*/}
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
         <Await resolve={event}>
           {(loadedEvent) => <EventItem event={loadedEvent} />}
@@ -31,6 +33,7 @@ function EventDetailPage() {
 
 export default EventDetailPage;
 
+//nova funckia ktora berie eventId
 async function loadEvent(id) {
   const response = await fetch('http://localhost:8080/events/' + id);
 
@@ -47,6 +50,7 @@ async function loadEvent(id) {
   }
 }
 
+//iba presunuta funkcia
 async function loadEvents() {
   const response = await fetch('http://localhost:8080/events');
 
@@ -71,8 +75,8 @@ export async function loader({ request, params }) {
   const id = params.eventId;
 
   return defer({
-    event: await loadEvent(id),
-    events: loadEvents(),
+    event: await loadEvent(id), //tu je ta nova funkcia, vdaka awaits defer pocka kym sa nacita event jeden, a az tak sa pokracuje dalej
+    events: loadEvents(), //loadEvents sa nacita az ked sa nacita dana page
   });
 }
 

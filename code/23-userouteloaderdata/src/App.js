@@ -28,9 +28,10 @@ const router = createBrowserRouter([
             loader: eventsLoader,
           },
           {
-            path: ':eventId',
-            id: 'event-detail',
+            path: ':eventId', //akokeby je to wrapper-route
+            id: 'event-detail', //pridanie id property, aby sa loader zaktivoval ako prvy pre event detail
             loader: eventDetailLoader,
+            //prisposobenie routes tak aby jeden loader posluzil aj pre eventDetail ale aj na edit detailu
             children: [
               {
                 index: true,

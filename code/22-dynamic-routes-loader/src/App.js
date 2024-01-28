@@ -30,7 +30,7 @@ const router = createBrowserRouter([
           {
             path: ':eventId',
             element: <EventDetailPage />,
-            loader: eventDetailLoader,
+            loader: eventDetailLoader, //loader tu musim zaregistrovat, react router to nezisti automaticky
           },
           { path: 'new', element: <NewEventPage /> },
           { path: ':eventId/edit', element: <EditEventPage /> },

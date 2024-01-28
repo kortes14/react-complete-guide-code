@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from "react-router-dom";
 
 import classes from './EventForm.module.css';
 
@@ -9,6 +9,7 @@ function EventForm({ method, event }) {
   }
 
   return (
+    //react router takes form and prepares it for an action (to be sent)
     <Form method='post' className={classes.form}>
       <p>
         <label htmlFor="title">Title</label>
